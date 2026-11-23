@@ -5,7 +5,6 @@ import 'package:arcade_motoru/savunma.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const savunmaId = 'oyun-kule-savunmasi';
 
@@ -88,7 +87,7 @@ final savunmaConfig = GameConfig(
   rules: savunmaRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => savunmaRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => savunmaRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintTd(c, s, p, t);
